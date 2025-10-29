@@ -1,9 +1,15 @@
-import matplotlib.pyplot as plt
+def findhrs(Exercisehrs):
+    ls = []
+    for line in Exercisehrs:
+            hrs = line.split(',')
+            hr = hrs[0]
+            if hr == '':
+                continue
+            else:
+                hr = float(hrs[0])
+                ls.append(hr)
+    return(ls)
 
-def bar (Word):
-    d = dict()
-    for letter in Word:
-        d[letter] = d.get(letter,0)+1
-        plt.bar(d.keys(), d.values())
-    plt.show()
-
+fhand = open ('StudentExercise.csv')
+next(fhand)
+print(findhrs(fhand))
